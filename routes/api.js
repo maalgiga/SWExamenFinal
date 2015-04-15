@@ -16,18 +16,39 @@ function apiRoutes(db){
   });
 
   router.get('/dataset/2', function(req, res, next) {
-    //implementar
-    res.status(500).json({"error":"not implemented"});
+    var muestra = db.collection("sleepDataSet");
+    var query = {
+      "group" : "2"
+    };
+
+    muestra.find(query).toArray(function(err, dataset){
+      console.log(dataset);
+      res.status(200).json(dataset);
+    })
   });
 
   router.get('/dataset/1', function(req, res, next) {
-    //implementar
-    res.status(500).json({"error":"not implemented"});
+    var muestra = db.collection("sleepDataSet");
+    var query = {
+      "group" : "1"
+    };
+
+    muestra.find(query).toArray(function(err, dataset){
+      console.log(dataset);
+      res.status(200).json(dataset);
+    })
   });
 
   router.get('/dataset/person/:id', function(req, res, next) {
-    //implementar
-    res.status(500).json({"error":"not implemented"});
+    var muestra = db.collection("sleepDataSet");
+    var query = {
+      "ID" : req.params.id
+    };
+
+    muestra.find(query).toArray(function(err, dataset){
+      console.log(dataset);
+      res.status(200).json(dataset);
+    })
   });
 
   router.post('/dataset/modAll', function(req, res, next) {
